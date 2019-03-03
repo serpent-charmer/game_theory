@@ -14,10 +14,10 @@ def beta(_matrix):
         column_maxes.append(max(_r_c_matrix[i]))
     return min(column_maxes)
 
-def saddle_point(_matrix, _length):
-    a = alpha(_matrix, _length)
-    b = beta(_matrix, _length)
-    return (a, b, a == b)
+def saddle_point(_matrix):
+    a = alpha(_matrix)
+    b = beta(_matrix)
+    return (a, b)
 
 def check_doubles(_matrix):
     _remove = []
@@ -83,17 +83,3 @@ def prune_lose_b(_o_matrix):
         _matrix.remove(r)
     return _matrix
 
-if __name__ == "__main__":
-    
-    _list = [
-    (1, 2, 4, 3),
-    (0, 2, 3, 3),
-    (1, 2, 4, 3),
-    (4, 3, 1, 0),
-    (4, 3, 4, 1)
-    ]
-    
-    m_a = prune_lose_a(check_doubles(_list))
-    
-    print("MOST WINNING A", m_a)
-    print("MOST WINNING B", prune_lose_b(m_a))
