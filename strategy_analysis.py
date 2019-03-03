@@ -37,8 +37,6 @@ def check_doubles(_matrix):
 def prune_lose_a(_o_matrix):
 
     _matrix = _o_matrix.copy()
-    
-    _matrix.sort(key=lambda x: sum(x))
 
     _remove = []
 
@@ -65,8 +63,6 @@ def prune_lose_b(_o_matrix):
 
     _matrix = rotate(_o_matrix.copy())
 
-    _matrix.sort(key=lambda x: sum(x))
-
     _remove = []
 
     for i in range(len(_matrix)):
@@ -86,3 +82,18 @@ def prune_lose_b(_o_matrix):
     for r in set(_remove):
         _matrix.remove(r)
     return _matrix
+
+if __name__ == "__main__":
+    
+    _list = [
+    (1, 2, 4, 3),
+    (0, 2, 3, 3),
+    (1, 2, 4, 3),
+    (4, 3, 1, 0),
+    (4, 3, 4, 1)
+    ]
+    
+    m_a = prune_lose_a(check_doubles(_list))
+    
+    print("MOST WINNING A", m_a)
+    print("MOST WINNING B", prune_lose_b(m_a))
