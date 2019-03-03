@@ -82,6 +82,7 @@ def prune_lose_b(_o_matrix):
                     break
             if not less:
                 _remove.append(_e)
+                
     for r in set(_remove):
         _matrix.remove(r)
     return _matrix
