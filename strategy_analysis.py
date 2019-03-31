@@ -83,3 +83,5 @@ def prune_lose_b(_o_matrix):
         _matrix.remove(r)
     return _matrix
 
+def sweep(_matrix):
+    return prune_lose_b(prune_lose_a(_matrix))
